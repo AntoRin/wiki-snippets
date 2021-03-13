@@ -11,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgb(218, 218, 218);
   overflow-x: hidden;
 }
@@ -51,7 +51,7 @@ header {
 }
 
 #query {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   background: floralwhite;
   border: 1px solid lightblue;
 }
