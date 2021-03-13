@@ -9,30 +9,36 @@ app.use(express.json());
 
 app.post("/query", async (req, res) => {
   let { query } = req.body;
-  console.log(query);
   try {
     let snippet = await scraper(query);
+    let image = snippet.image || "";
     if (snippet.status === "error") throw snippet.message;
     return res.json({
       status: "ok",
       data: snippet.snippet,
-      image: snippet.image,
+      image,
     });
   } catch (error) {
-    return res.status(404).json({ status: "error", data: error });
+    return res.status(404).json({ status: "error", data: error, image: "" });
   }
 });
 
 app.get("/api/wikisnippet/:query", async (req, res) => {
   let query = req.params.query;
-  console.log(query);
   try {
     let snippet = await scraper(query);
+    let image = snippet.image || "";
     if (snippet.status === "error") throw snippet.message;
-    return res.json({ status: "ok", data: snippet.snippet });
+    return res.json({ status: "ok", data: snippet.snippet, image });
   } catch (error) {
-    return res.status(404).json({ status: "error", data: error });
+    return res.status(404).json({ status: "error", data: error, image: "" });
   }
+});
+
+app.get("*", (req, res) => {
+  res
+    .status(404)
+    .send("<div><div><h1>404</h1></div><div><h3>Not Found</h3></div></div>");
 });
 
 const port = process.env.PORT || 5000;

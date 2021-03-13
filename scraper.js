@@ -33,7 +33,7 @@ async function wikiSnippets(searchTerm) {
     }
   }
 
-  if (!snippet) return { status: "error", message: "Refine Search" };
+  if (!snippet) return { status: "error", message: "Refine Search", image: "" };
 
   return { status: "ok", snippet, image };
 }

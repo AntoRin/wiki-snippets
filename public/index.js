@@ -8,7 +8,6 @@ submit.onclick = async event => {
   result.textContent = "Loading...";
   resultImage.src = "";
   let query = input.value;
-  console.log(query);
   let fetchOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -16,7 +15,6 @@ submit.onclick = async event => {
   };
   let send = await fetch("/query", fetchOptions);
   let serverResponse = await send.json();
-  console.log(serverResponse);
   result.textContent = serverResponse.data;
   resultImage.src = serverResponse.image;
 };
