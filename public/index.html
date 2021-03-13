@@ -5,15 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wiki Snippets</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>Wiki Snippets</h1>
-    <p>Search:</p>
-    <form id="form">
-      <input type="text" name="query" id="query" />
-      <button id="submit">Submit</button>
-    </form>
-    <p id="result"></p>
+    <header>
+      <h1>Wiki Snippets</h1>
+    </header>
+    <div class="main-container">
+      <div class="search-title">
+        <p>Search for a Wikipedia page</p>
+      </div>
+      <div class="query-form">
+        <form id="form">
+          <input autocomplete="off" type="text" name="query" id="query" />
+          <button id="submit">Search</button>
+        </form>
+      </div>
+    </div>
+    <div class="result-card">
+      <p id="result"></p>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

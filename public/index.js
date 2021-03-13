@@ -1,6 +1,5 @@
 let input = document.getElementById("query");
 let submit = document.getElementById("submit");
-let form = document.getElementById("form");
 let result = document.getElementById("result");
 
 submit.onclick = async event => {
