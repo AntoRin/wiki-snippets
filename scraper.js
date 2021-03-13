@@ -1,5 +1,6 @@
 const { JSDOM } = require("jsdom");
 const fetch = require("node-fetch");
+const path = require("path");
 
 async function wikiSnippets(searchTerm) {
   let query = searchTerm.replace(/ /g, "+").trim();
@@ -9,18 +10,32 @@ async function wikiSnippets(searchTerm) {
   );
   let html = await request.text();
   let { document } = new JSDOM(html).window;
-  let paragraphs = document.querySelectorAll("p");
 
+  let paragraphs = document.querySelectorAll("p");
   let snippet;
+
   for (let i = 0; i < paragraphs.length; i++) {
     if (paragraphs[i].textContent.length > 200) {
       snippet = paragraphs[i].textContent;
       break;
     }
   }
+
+  let images = document.querySelectorAll("img");
+  let image;
+
+  for (let i = 0; i < images.length; i++) {
+    let url = images[i].src;
+    let ext = path.extname(url);
+    if (ext === ".jpg" || ext === ".jpeg") {
+      image = url;
+      break;
+    }
+  }
+
   if (!snippet) return { status: "error", message: "Refine Search" };
-  console.log(snippet);
-  return { status: "ok", snippet };
+
+  return { status: "ok", snippet, image };
 }
 
 module.exports = wikiSnippets;

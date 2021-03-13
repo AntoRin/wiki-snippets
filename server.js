@@ -13,7 +13,11 @@ app.post("/query", async (req, res) => {
   try {
     let snippet = await scraper(query);
     if (snippet.status === "error") throw snippet.message;
-    return res.json({ status: "ok", data: snippet.snippet });
+    return res.json({
+      status: "ok",
+      data: snippet.snippet,
+      image: snippet.image,
+    });
   } catch (error) {
     return res.status(404).json({ status: "error", data: error });
   }

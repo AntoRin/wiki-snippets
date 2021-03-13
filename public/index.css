@@ -79,3 +79,9 @@ header {
   font-size: 1.2rem;
   padding: 15px;
 }
+
+.result-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
