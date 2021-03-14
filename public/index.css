@@ -68,12 +68,15 @@ header {
   border-radius: 5px;
 }
 
+.result-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .result-card {
   margin: 30px;
   width: 75%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   color: black;
   font-family: serif;
   font-size: 1.2rem;
@@ -81,6 +84,7 @@ header {
 }
 
 .result-image {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

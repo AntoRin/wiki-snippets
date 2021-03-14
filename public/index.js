@@ -18,3 +18,7 @@ submit.onclick = async event => {
   result.textContent = serverResponse.data;
   resultImage.src = serverResponse.image;
 };
+
+//https redirect
+if (window.location.href.startsWith("http:"))
+  window.location.href = window.location.href.replace("http:", "https:");
