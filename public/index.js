@@ -1,3 +1,8 @@
+//https redirect
+if (window.location.href.startsWith("http:"))
+  window.location.href = window.location.href.replace("http:", "https:");
+
+//Wiki Query
 let input = document.getElementById("query");
 let submit = document.getElementById("submit");
 let result = document.getElementById("result");
@@ -19,6 +24,15 @@ submit.onclick = async event => {
   resultImage.src = serverResponse.image;
 };
 
-//https redirect
-if (window.location.href.startsWith("http:"))
-  window.location.href = window.location.href.replace("http:", "https:");
+//Modal
+let modalBtn = document.querySelector(".api-help");
+let modal = document.getElementById("modal");
+let modalClose = document.querySelector(".close-btn");
+
+modalBtn.onclick = () => {
+  modal.style.display = "block";
+};
+
+modalClose.onclick = () => {
+  modal.style.display = "none";
+};

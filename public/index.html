@@ -30,6 +30,35 @@
         <p id="result"></p>
       </div>
     </div>
+    <div class="api-help">API</div>
+    <div id="modal">
+      <div class="documentation">
+        You can use the website's interface directly to search for and get
+        snippets of Wikipedia information. If you choose to use the snippets in
+        your application instead, you can use the API at the path
+        "/api/wikisnippet/:query". <br />
+        <br />
+        <strong>
+          Query Structure: <br />
+          <ul>
+            <li>
+              Although spaces between words are usually encoded by the browser,
+              it is recommended to encode spaces with "%20" or with a "+".
+            </li>
+            <li>
+              Using search queries that are not understood by Wikipedia will
+              return an error.
+            </li>
+            <li>
+              Searching for exact Wikipedia pages will give you an accurate
+              result.
+            </li>
+          </ul>
+        </strong>
+        <div class="close-btn">X</div>
+      </div>
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>
