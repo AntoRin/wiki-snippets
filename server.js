@@ -1,7 +1,7 @@
 const express = require("express");
 
-const scraper = require("./scraper");
-const scraperFull = require("./scraper");
+const { scraper } = require("./scraper");
+const { scraperFull } = require("./scraper");
 
 const app = express();
 
