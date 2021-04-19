@@ -1,6 +1,6 @@
 //https redirect
 if (window.location.href.startsWith("http:"))
-  window.location.href = window.location.href.replace("http:", "https:");
+   window.location.href = window.location.href.replace("http:", "https:");
 
 //Wiki Query
 let input = document.getElementById("query");
@@ -9,19 +9,19 @@ let result = document.getElementById("result");
 let resultImage = document.getElementById("resultImage");
 
 submit.onclick = async event => {
-  event.preventDefault();
-  result.textContent = "Loading...";
-  resultImage.src = "";
-  let query = input.value;
-  let fetchOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
-  };
-  let send = await fetch("/query", fetchOptions);
-  let serverResponse = await send.json();
-  result.textContent = serverResponse.data;
-  resultImage.src = serverResponse.image;
+   event.preventDefault();
+   result.textContent = "Loading...";
+   resultImage.src = "";
+   let query = input.value;
+   let fetchOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+   };
+   let send = await fetch("/query", fetchOptions);
+   let serverResponse = await send.json();
+   result.textContent = serverResponse.data;
+   resultImage.src = serverResponse.image;
 };
 
 //Modal
@@ -30,9 +30,9 @@ let modal = document.getElementById("modal");
 let modalClose = document.querySelector(".close-btn");
 
 modalBtn.onclick = () => {
-  modal.style.display = "block";
+   modal.style.display = "block";
 };
 
 modalClose.onclick = () => {
-  modal.style.display = "none";
+   modal.style.display = "none";
 };
