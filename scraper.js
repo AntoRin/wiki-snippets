@@ -41,7 +41,6 @@ async function wikiSnippets(searchTerm) {
 
 async function wikiPage(searchTerm) {
    let query = searchTerm.replace(/ /g, "+").trim();
-   console.log(query);
    let request = await fetch(
       `https://en.wikipedia.org/w/index.php?search=${query}&title=Special%3ASearch&go=Go&ns0=1`
    );
@@ -49,6 +48,7 @@ async function wikiPage(searchTerm) {
    let { document } = new JSDOM(html).window;
 
    let paragraphs = document.querySelectorAll("p");
+
    let firstParaIndex = 0;
 
    for (let i = 0; i < paragraphs.length; i++) {
@@ -58,7 +58,10 @@ async function wikiPage(searchTerm) {
       }
    }
 
-   let allParagraphs = paragraphs.slice(firstParaIndex);
+   let parsedNodeList = Array.from(paragraphs);
+
+   let allParagraphNodes = parsedNodeList.slice(firstParaIndex);
+   let allParagraphs = allParagraphNodes.map(node => node.textContent);
 
    let images = document.querySelectorAll("img");
    let image;
