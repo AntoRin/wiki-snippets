@@ -1,6 +1,7 @@
 //https redirect
-if (window.location.href.startsWith("http:"))
+if (window.location.href.startsWith("http:") && window.location.hostname !== "localhost") {
    window.location.href = window.location.href.replace("http:", "https:");
+}
 
 //Wiki Query
 let input = document.getElementById("query");
